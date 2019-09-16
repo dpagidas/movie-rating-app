@@ -12,6 +12,7 @@
             {% endif %}
 
 
+
                 <div class="movies">
                     {% for movie in object_list %}
                         <div class="mov">
@@ -41,7 +42,6 @@
                         {% endif %}
                     
                     {% endfor %}
-                    
 
                     {% if page_obj.has_next %}
 						<li><a href="?pages={{ page_obj.next_page_number }}">Next</a></li>

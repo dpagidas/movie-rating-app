@@ -26,16 +26,14 @@ class Movie(models.Model):
     description = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='movies')
     banner = models.ImageField(upload_to='movies_banner')
-    category = models.CharField(choices= CATEGORY_CHOICES, max_length=10)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=10)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=10)
     status = models.CharField(choices=STATUS_CHOICES, max_length=2)
     cast = models.CharField(max_length=100)
     year_of_production = models.DateField()
     views_count = models.IntegerField(default=0)
     movie_trailer = models.URLField()
-
     created = models.DateTimeField(default=timezone.now)
-
     slug = models.SlugField(blank=True, null=True)
 
     def save(self, *args, **kwargs):

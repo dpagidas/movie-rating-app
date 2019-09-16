@@ -9,6 +9,7 @@ class HomeView(ListView):
     model = Movie
     template_name = 'movie/home.html'
 
+
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['top_rated'] = Movie.objects.filter(status='TR')
@@ -45,6 +46,7 @@ class MovieCategory(ListView):
     def get_queryset(self):
         self.category = self.kwargs['category']
         return Movie.objects.filter(category=self.category)
+
 
     def get_context_data(self, **kwargs):
         context = super(MovieCategory, self).get_context_data(**kwargs)
